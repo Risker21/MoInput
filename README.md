@@ -21,7 +21,7 @@
     │   └── promo-20s.mp4    # 21 秒 3D 宣传片（1080p，页面中静音循环播放）
     ├── releases.json      # App 内「检查更新」读的版本索引（no-cache）
     └── downloads/
-        └── MoJi-latest.apk       # 91.8 MB，固定链接名（旧码永不过期），随镜像分发
+        └── MoJi-latest.apk       # 91.9 MB，固定链接名（旧码永不过期），随镜像分发
 ```
 
 ## 本地跑起来
@@ -86,7 +86,7 @@ docker compose up -d --build
 
 1. 用新包覆盖 `public/downloads/MoJi-latest.apk`（固定名：页面按钮、二维码、
    App 检查更新都指向它，旧链接与扫过的码永不过期）
-2. 全文替换版本号：`index.html` 中的显示文案（`v0.1`、`91.8 MB`、`下载 MoJi-…apk`），
+2. 全文替换版本号：`index.html` 中的显示文案（`v0.2`、`91.9 MB`、`下载 MoJi-…apk`），
    以及 `nginx.conf` 里的 `Content-Disposition` 保存文件名（下载到本地的文件名仍带版本号）
 3. 更新 `public/releases.json`：新版本的 `version` / `notes`（`url` 保持 `downloads/MoJi-latest.apk`）
 4. `docker compose up -d --build`
