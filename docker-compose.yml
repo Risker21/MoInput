@@ -6,7 +6,7 @@ services:
     image: moji-landing:latest
     container_name: moji-landing
     ports:
-      - "80:80"        # HTTP（挂证书后自动 301 跳转 HTTPS）
+    #  - "80:80"        # HTTP（挂证书后自动 301 跳转 HTTPS）
       - "443:443"      # HTTPS（挂证书后自动启用）
       - "2082:80"      # 服务器代理对外端口（2026-10-13 由 8080 改为 2082）
     restart: unless-stopped

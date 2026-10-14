@@ -243,6 +243,19 @@
     pvWrap.addEventListener("click", function () {
       if (pvWrap.classList.contains("is-paused")) pvTryPlay();
     });
+    /* 滚出视口暂停（省电/省流量），滚回来续播 */
+    if ("IntersectionObserver" in window) {
+      var pvo = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) pvTryPlay();
+            else pv.pause();
+          });
+        },
+        { threshold: 0.25 }
+      );
+      pvo.observe(pv);
+    }
   }
 
   /* ───────── 下载二维码（CDN 可用才显示，失败自动隐藏） ───────── */
