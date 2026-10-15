@@ -1,0 +1,45 @@
+name: moji-landing   # 目录名含中文时 compose 推导不出项目名，显式指定
+
+services:
+  landing:
+    build: .
+    image: moji-landing:latest
+    container_name: moji-landing
+    ports:
+    #  - "80:80"        # HTTP（挂证书后自动 301 跳转 HTTPS）
+      - "443:443"      # HTTPS（挂证书后自动启用）
+      - "2082:80"      # 服务器代理对外端口（2026-10-13 由 8080 改为 2082）
+    restart: unless-stopped
+
+    # ── 配置与证书 ──
+    volumes:
+      - nginx-conf:/etc/nginx/conf.d        # 可写配置区（entrypoint 每次启动重新播种）
+      - ./certs:/etc/nginx/certs:ro         # 放 fullchain.pem + privkey.pem 即启用 HTTPS
+
+    # ── 容器加固 ──
+    read_only: true                 # 根文件系统只读，运行期不落盘
+    tmpfs:                          # nginx 运行必需的可写路径
+      - /var/cache/nginx:rw,noexec,nosuid,size=64m
+      - /var/run:rw,noexec,nosuid,size=8m
+    security_opt:
+      - no-new-privileges:true      # 进程无法通过 setuid 等方式提权
+    cap_drop:
+      - ALL                         # 先丢弃全部能力
+    cap_add:                        # 只还回 nginx 必需的四个
+      - CHOWN
+      - SETGID
+      - SETUID
+      - NET_BIND_SERVICE
+    pids_limit: 256                 # 防 fork 炸弹
+    mem_limit: 512m                 # 内存上限
+    cpus: 1.0                       # CPU 上限
+
+    # ── 日志轮转，防止磁盘写满 ──
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  nginx-conf:

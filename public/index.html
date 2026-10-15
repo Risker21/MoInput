@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mo记输入法 — 打字的时候，顺手学一门语言</title>
+<meta name="description" content="Mo记输入法：无广告的 Android 系统输入法。每个候选词带英/日译文，打字即背词；离线语音、九宫格、快捷译文一应俱全，输入全程不联网。">
+<meta name="theme-color" content="#070b0a">
+<!-- 微信/QQ/浏览器分享卡片 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mo记输入法">
+<meta property="og:title" content="Mo记输入法 — 打字的时候，顺手学一门语言">
+<meta property="og:description" content="无广告 Android 输入法：候选词带英/日译文，打字即背词；离线语音、九宫格、快捷译文，输入全程不联网。">
+<meta property="og:image" content="https://riskermo.com/img/video-poster.jpg">
+<meta property="og:url" content="https://riskermo.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23070b0a'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%2335e6a8' font-family='monospace' font-weight='bold'>M</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=20261013">
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a class="brand" href="#top">
+    <span class="brand-mark">M</span>
+    <span class="brand-name">Mo记输入法</span>
+  </a>
+  <nav class="site-nav">
+    <a href="#learning">学外语</a>
+    <a href="#features">功能</a>
+    <a href="#voice">离线语音</a>
+    <a href="#download">下载</a>
+  </nav>
+  <a class="btn btn-mini" href="downloads/MoJi-latest.apk">下载 v0.3 测试版</a>
+</header>
+
+<main id="top">
+
+  <!-- ─────────────── Hero ─────────────── -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">TYPE&nbsp;·&nbsp;AND&nbsp;·&nbsp;LEARN&nbsp;·&nbsp;<span class="mono accent">v0.3&nbsp;·&nbsp;BETA</span></p>
+      <h1 class="reveal d1">
+        <span class="h1-line">打字的间隙，</span>
+        <span class="h1-line h1-gradient">顺手学会一门语言。</span>
+      </h1>
+      <p class="typewriter reveal d2">
+        <span id="typed"></span><span class="caret" aria-hidden="true"></span>
+      </p>
+      <div class="cta-row reveal d3">
+        <a class="btn btn-primary" href="downloads/MoJi-latest.apk">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+          下载 APK
+          <span class="btn-size mono">91.9&nbsp;MB</span>
+        </a>
+        <a class="btn btn-ghost" href="#learning">看看键盘长什么样 ↓</a>
+      </div>
+      <ul class="hero-meta mono reveal d4">
+        <li>英/日译词</li>
+        <li>无广告 · 无账号</li>
+        <li>不联网</li>
+        <li>Android 8.0+</li>
+      </ul>
+    </div>
+
+    <div class="hero-device reveal d2">
+      <div class="device-glow" aria-hidden="true"></div>
+      <div class="phone" id="hero-phone">
+        <div class="phone-notch" aria-hidden="true"></div>
+        <div class="phone-screen">
+          <img class="slide active" src="img/hero-gloss-en.png?v=20261013" alt="全键盘候选词带英文译文">
+          <img class="slide" src="img/hero-gloss-ja.png?v=20261013" alt="全键盘候选词带日文译文">
+          <img class="slide" src="img/hero-panel.png?v=20261013" alt="键盘内功能面板">
+          <div class="screen-shine" aria-hidden="true"></div>
+        </div>
+        <div class="phone-home" aria-hidden="true"></div>
+      </div>
+      <div class="slide-dots" role="tablist" aria-label="截图切换">
+        <button class="dot active" data-i="0" aria-label="截图1"></button>
+        <button class="dot" data-i="1" aria-label="截图2"></button>
+        <button class="dot" data-i="2" aria-label="截图3"></button>
+      </div>
+      <div class="device-caption mono">REAL&nbsp;SCREENSHOTS&nbsp;·&nbsp;v0.3&nbsp;BETA</div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Promo video ─────────────── -->
+  <section class="promo" id="promo">
+    <div class="section-head reveal">
+      <p class="eyebrow">PROMO&nbsp;·&nbsp;21S</p>
+      <h2>21 秒，看它怎么用</h2>
+    </div>
+    <div class="promo-frame reveal d1">
+      <div class="promo-box">
+        <video src="video/promo-20s.mp4" poster="img/video-poster.jpg?v=20261013"
+               width="1920" height="1080"
+               autoplay muted loop playsinline webkit-playsinline x5-playsinline
+               controls preload="metadata"></video>
+      </div>
+    </div>
+    <p class="gallery-note mono reveal d2">REAL&nbsp;SCREENSHOTS&nbsp;·&nbsp;ANIMATED&nbsp;IN&nbsp;3D</p>
+  </section>
+
+  <!-- ─────────────── Learning ─────────────── -->
+  <section class="learning" id="learning">
+    <div class="learning-copy">
+      <p class="eyebrow reveal">LEARN&nbsp;BY&nbsp;TYPING</p>
+      <h2 class="reveal d1">每敲一个词，<br>顺手学一门语言。</h2>
+      <p class="learning-lead reveal d2">候选词旁自动附上译文。打字时瞥一眼，外语说法在真实语境里反复出现——不用打开背单词 App，枯燥的死记硬背就此省掉。</p>
+      <ul class="learn-points">
+        <li class="reveal d2">
+          <span class="lp-mark mono">EN</span>
+          <div><strong>英文译词直接跟着候选</strong><span class="mono">开发 → develop</span></div>
+        </li>
+        <li class="reveal d3">
+          <span class="lp-mark mono">JA</span>
+          <div><strong>日文写法直接跟着候选</strong><span class="mono">开发 → 開発する</span></div>
+        </li>
+        <li class="reveal d4">
+          <span class="lp-mark mono">EN/JA</span>
+          <div><strong>键盘里一键切换，随开随关</strong><span>功能面板「译文语言」卡英↔日随时换，「译文：开/关」卡不学的时候关掉</span></div>
+        </li>
+      </ul>
+      <div class="voice-tags reveal d4">
+        <span class="tag mono">中→英 译词</span>
+        <span class="tag mono">中→日 译词</span>
+        <span class="tag mono">词库随包 · 全本地</span>
+      </div>
+    </div>
+
+    <div class="learning-demo reveal d2">
+      <div class="demo-tabs mono">
+        <span class="demo-tab active" data-tab="en">ENGLISH</span>
+        <span class="demo-tab" data-tab="ja">日本語</span>
+      </div>
+      <div class="cand-frame">
+        <div class="lang-set active" data-set="en">
+          <div class="cand-preedit mono">kai'fa</div>
+          <div class="cand-row"><span class="cand-word">开发</span><span class="cand-gloss">develop</span></div>
+          <div class="cand-row"><span class="cand-word">开放</span><span class="cand-gloss">open</span></div>
+          <div class="cand-row"><span class="cand-word">开饭</span><span class="cand-gloss">serve meal</span></div>
+        </div>
+        <div class="lang-set" data-set="ja">
+          <div class="cand-preedit mono">kai'fa</div>
+          <div class="cand-row"><span class="cand-word">开发</span><span class="cand-gloss">開発する</span></div>
+          <div class="cand-row"><span class="cand-word">发展</span><span class="cand-gloss">発展する</span></div>
+          <div class="cand-row"><span class="cand-word">开始</span><span class="cand-gloss">始める</span></div>
+        </div>
+      </div>
+      <div class="real-shots reveal d3">
+        <figure class="shot-card">
+          <img src="img/learn-gloss-en.png?v=20261013" alt="候选栏英文译词实拍" loading="lazy">
+          <figcaption class="mono">EN&nbsp;GLOSS&nbsp;·&nbsp;实拍</figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="img/learn-gloss-ja.png?v=20261013" alt="候选栏日文译词实拍" loading="lazy">
+          <figcaption class="mono">JA&nbsp;GLOSS&nbsp;·&nbsp;实拍</figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="img/learn-toggle.png?v=20261013" alt="功能面板译文开关与译文语言卡实拍" loading="lazy">
+          <figcaption class="mono">译文开关 / 语言切换 · 实拍</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Features ─────────────── -->
+  <section class="features" id="features">
+    <div class="section-head reveal">
+      <p class="eyebrow">ONE&nbsp;KEYBOARD</p>
+      <h2>一个键盘，什么都在里面</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="card reveal">
+        <div class="card-icon mono">01</div>
+        <h3>功能面板</h3>
+        <p>键盘内 4 列网格，表情 / 剪贴板 / 快捷译文 / 编辑 / 符号 / 主题 / 设置，一张卡直达，不用跳出键盘。</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="card-icon mono">02</div>
+        <h3>两套键盘</h3>
+        <p>全键盘与九宫格随心切，九宫格候选同样带译文；「123」的符号页与数字页按新参考重做。</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="card-icon mono">03</div>
+        <h3>快捷译文</h3>
+        <p>候选词译文是被动地看，快捷译文是主动地查：常用双语短语一点即上屏，中英对照现成可用。</p>
+      </article>
+      <article class="card reveal d3">
+        <div class="card-icon mono">04</div>
+        <h3>离线语音</h3>
+        <p>长按空格开口即说，识别引擎与模型随包内置，飞行模式、地铁隧道照样能用。</p>
+      </article>
+    </div>
+
+    <div class="gallery reveal d2">
+      <figure class="shot-card">
+        <img src="img/kb-function.png?v=20261013" alt="功能面板 12 卡网格" loading="lazy">
+        <figcaption class="mono">功能面板 · 实拍</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="img/kb-t9.png?v=20261013" alt="九宫格候选带译文" loading="lazy">
+        <figcaption class="mono">九宫格 + 译文 · 实拍</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="img/kb-symbols.png?v=20261013" alt="全键符号页" loading="lazy">
+        <figcaption class="mono">符号页 · 实拍</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="img/kb-numpad.png?v=20261013" alt="九宫格数字页" loading="lazy">
+        <figcaption class="mono">数字页 · 实拍</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="img/kb-translate.png?v=20261013" alt="快捷译文面板" loading="lazy">
+        <figcaption class="mono">快捷译文 · 实拍</figcaption>
+      </figure>
+    </div>
+    <p class="gallery-note mono reveal d3">底层是真实语料策展的候选词对——短而准，敲三个字母得到整句话。</p>
+  </section>
+
+  <!-- ─────────────── Voice ─────────────── -->
+  <section class="voice" id="voice">
+    <div class="voice-visual reveal">
+      <div class="phone phone-sm">
+        <div class="phone-notch" aria-hidden="true"></div>
+        <div class="phone-screen">
+          <img src="img/voice-panel.png?v=20261013" alt="离线语音面板：正在聆听" loading="lazy">
+          <div class="screen-shine" aria-hidden="true"></div>
+        </div>
+        <div class="phone-home" aria-hidden="true"></div>
+      </div>
+      <div class="wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="voice-copy">
+      <p class="eyebrow reveal">OFFLINE&nbsp;SPEECH</p>
+      <h2 class="reveal d1">松开手，<br>话已经在那里。</h2>
+      <p class="voice-lead reveal d2">很多国产手机根本没装系统语音服务——装了也常断网摆设。Mo记把识别引擎直接做进输入法：模型随包内置，识别在设备端完成。</p>
+      <ol class="steps">
+        <li class="reveal d2"><span class="step-n mono">1</span><div><strong>长按空格</strong><span>按住约 0.35 秒，键盘切换为语音面板</span></div></li>
+        <li class="reveal d3"><span class="step-n mono">2</span><div><strong>开口说话</strong><span>实时出字，边说边看到候选浮现</span></div></li>
+        <li class="reveal d4"><span class="step-n mono">3</span><div><strong>松手上屏</strong><span>最终结果直接落入输入框，随后回到键盘</span></div></li>
+      </ol>
+      <div class="voice-tags reveal d4">
+        <span class="tag mono">VOSK</span>
+        <span class="tag mono">42MB 模型内置</span>
+        <span class="tag mono">零联网</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Trust ─────────────── -->
+  <section class="trust reveal">
+    <div class="trust-item"><strong>无广告</strong><span>没有信息流与弹窗</span></div>
+    <div class="trust-item"><strong>无账号</strong><span>打开就能用</span></div>
+    <div class="trust-item"><strong>不联网</strong><span>输入不经过服务器</span></div>
+    <div class="trust-item"><strong>全本地</strong><span>引擎 · 词库 · 语音都在手机里</span></div>
+  </section>
+
+  <!-- ─────────────── Download ─────────────── -->
+  <section class="download" id="download">
+    <div class="download-card reveal">
+      <div class="download-info">
+        <p class="eyebrow">DOWNLOAD</p>
+        <h2>装上试试</h2>
+        <p class="dl-desc">下载 APK → 系统设置中启用「Mo记输入法」→ 选择它，完成。</p>
+        <div class="dl-meta mono">
+          <span>版本 0.3 · 测试版</span>
+          <span>91.9 MB</span>
+          <span>Android 8.0+</span>
+          <span>arm64 / x86_64</span>
+        </div>
+        <a class="btn btn-primary btn-big" href="downloads/MoJi-latest.apk">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+          下载 MoJi-latest.apk
+        </a>
+        <p class="dl-note">下载后若系统提示「未知来源」，允许本浏览器安装即可。装完可在系统设置里核对应用签名与首次安装时间。</p>
+      </div>
+      <div class="download-qr" id="qr-wrap" hidden>
+        <div id="qr"></div>
+        <p class="mono">扫码下载</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-left">
+    <span class="brand-mark brand-mark-sm">M</span>
+    <span>Mo记输入法</span>
+  </div>
+  <p class="mono">BUILT&nbsp;LOCALLY&nbsp;·&nbsp;NO&nbsp;TRACKING&nbsp;·&nbsp;2026</p>
+</footer>
+
+<script src="js/main.js?v=20261013"></script>
+</body>
+</html>
